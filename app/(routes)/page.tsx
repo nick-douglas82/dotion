@@ -1,9 +1,15 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRightIcon } from '@heroicons/react/24/solid'
-import { NavBar } from './components/navigation/NavBar'
+import { useSession } from 'next-auth/react'
+import { NavBar } from '@/app/_components/navigation/NavBar'
 
 export default function Home() {
+  const { data: session, status } = useSession()
+  console.log('status', status)
+  console.log('session', session)
   return (
     <>
       <NavBar />
